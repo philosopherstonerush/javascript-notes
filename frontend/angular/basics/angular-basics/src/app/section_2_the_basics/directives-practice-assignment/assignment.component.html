@@ -1,0 +1,24 @@
+
+
+<button class="btn btn-primary mt-5 mx-5" (click)="changeParagraphOpacity()">
+
+Display Details
+</button>
+
+<p *ngIf="allowParagraph" class="mx-5 mt-5" >
+    Hi, Suvarna here. I am a software engineer. I love to code and learn new technologies.
+</p>
+
+<ul class="mt-5 mx-5">
+    <li *ngFor="let item of loggerArray; index as i">
+        <div *ngIf="i > 5; else elseBlock" [ngStyle] = "{'background-color': color}" [ngClass]="'text-white'">
+            {{ item }}
+        </div>
+        <ng-template #elseBlock>
+            <div >
+                {{ item }}
+            </div>
+        </ng-template>
+    </li>
+</ul>
+

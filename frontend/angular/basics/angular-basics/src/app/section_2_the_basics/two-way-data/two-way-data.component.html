@@ -1,0 +1,21 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="m-5">
+    <input [(ngModel)] = "username" (input) = "checkifcanallow($event)">
+    <button [disabled] = "!allowButton" (click) = "reset()"> submit </button>
+    <p> {{ username }} </p>
+    <p *ngIf="saved; else elseBlock"> username updated successfully </p>
+    <ng-template #elseBlock>
+        <p>
+            username cannot be entered
+        </p>
+    </ng-template>
+</body>
+</html>

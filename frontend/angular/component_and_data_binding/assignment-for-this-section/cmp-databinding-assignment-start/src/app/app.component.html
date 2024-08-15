@@ -1,0 +1,18 @@
+<div class="container-fluid m-auto">
+    <app-game-control (digit)="digitEventHandler($event)">
+    </app-game-control>
+    <div style="margin-top: 25px; background-color: lightcoral; padding: 5px">
+      <app-odd>
+        <p *ngFor="let num of OddNumberArr">
+          Odd - {{ num }}
+        </p>
+      </app-odd>
+    </div>
+    <div style="margin-top: 25px; background-color: lightblue; padding: 5px">
+      <app-even>
+        <p *ngFor="let num of EvenNumberArr">
+          Even - {{ num }}
+        </p>
+      </app-even>
+    </div>
+</div>

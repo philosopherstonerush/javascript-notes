@@ -6,5 +6,5 @@ import { Component } from "@angular/core";
     selector: 'suvarna',
 })
 export class SuvarnaComponent {
-
+    age: number = 10;
 }

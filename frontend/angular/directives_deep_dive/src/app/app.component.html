@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <li
+          class="list-group-item">
+        </li>
+      </ul>
+      <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template>
+      <p appBasicHighlight>
+        this is from appBasicHighLight
+      </p>
+      <p appBetterHighlighter defaultColor="red" highlightColor="green" >
+        this is from appBetterHighlighter
+      </p>
+      <p *appUnless="onlyOdd">
+          this is from a structural directive that I made!
+      </p>
+
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="10"> this is a 10 </p>
+        <p *ngSwitchCase="5"> this is a 5 </p>
+        <p *ngSwitchDefault> this is a default case </p>
+      </div>
+
+    </div>
+  </div>
+</div>
