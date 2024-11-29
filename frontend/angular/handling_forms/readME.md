@@ -363,6 +363,41 @@ getControls() {
 
 ```
 
+NOTE: COMPLEX EXAMPLE - I spent too much time debugging this
+
+- The gist is you cant use [formControlName] with the [] on it, the right way is to just say `formControlName='<whatever>'`
+
+```angular17html
+
+<div class="col-xs-12" formArrayName="ingredients">
+    <div
+            class="row"
+            *ngFor="let ingredient of controls; let i = index"
+<!--            GROUP CAN HAVE THE []           -->
+            [formGroupName]="i"
+    >
+        <div class="col-xs-8">
+            <input type="text"
+                   class="form-control"
+                   formControlName="name"
+            >
+        </div>
+        <div class="col-xs-2">
+            <input class="form-control"
+                   type="number"
+                   formControlName="amount">
+        </div>
+        <div class="col-xs-2">
+            <button class="btn btn-danger">X</button>
+        </div>
+    </div>
+</div>
+
+```
+
+
+
+
 ### Custom validators:
 
 ```typescript

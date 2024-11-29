@@ -50,7 +50,6 @@ export class ShoppingEditComponent implements OnDestroy {
   }
 
   onDelete() {
-    console.log("my asss")
     if(this.editMode) {
       console.log("deleted item" + this.editedItemIndex);
       this.shoppingListService.removeIngredient(this.editedItemIndex);

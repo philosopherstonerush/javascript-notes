@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import { RecipeModel } from '../recipe.model';
 import {RecipeService} from "../recipe.service";
 import {ShoppingListService} from "../../shopping-list/shopping-list.service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -14,7 +14,7 @@ export class RecipeDetailComponent {
   @Input("recipe") recipe: RecipeModel;
   id: number;
 
-  constructor(private recipeService: RecipeService, private shoppingList: ShoppingListService, private route: ActivatedRoute) {
+  constructor(private recipeService: RecipeService, private shoppingList: ShoppingListService, private route: ActivatedRoute, private router: Router) {
     recipeService.recipeSelected.subscribe((recipe: RecipeModel) => {
       console.log("event is emitted properly")
       console.log(recipe.name)
@@ -32,5 +32,10 @@ export class RecipeDetailComponent {
 
   addIngredientsToShoppingList() {
     this.shoppingList.addAllIngredients(this.recipe.ingredients)
+  }
+
+  onDeleteRecipe() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes'])
   }
 }
